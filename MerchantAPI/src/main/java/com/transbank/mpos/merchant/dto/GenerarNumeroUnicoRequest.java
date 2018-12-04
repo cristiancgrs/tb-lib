@@ -6,13 +6,13 @@ public class GenerarNumeroUnicoRequest implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	private Long codigoComercio;
+	private String codigoComercio;
 
-	public Long getCodigoComercio() {
+	public String getCodigoComercio() {
 		return codigoComercio;
 	}
 
-	public void setCodigoComercio(Long codigoComercio) {
+	public void setCodigoComercio(String codigoComercio) {
 		this.codigoComercio = codigoComercio;
 	}
 

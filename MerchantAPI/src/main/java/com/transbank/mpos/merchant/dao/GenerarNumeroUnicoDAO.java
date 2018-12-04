@@ -1,15 +1,15 @@
 package com.transbank.mpos.merchant.dao;
 
-import java.util.List;
-
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.query.Param;
 
-import com.transbank.mpos.merchant.dto.GenerarNumeroUnicoRq;
+import com.transbank.mpos.merchant.dto.FT_mposMerchant;
 
-@Repository
-public interface GenerarNumeroUnicoDAO extends JpaRepository<GenerarNumeroUnicoRq, Long>{
+public interface GenerarNumeroUnicoDAO extends CrudRepository<FT_mposMerchant, Long>{
 	
+	@Procedure(name="ST_GENERA_NUMERO_UNICO")
+	String generaNumeroUnico(@Param("CDG_codComercio") Long codComercio);
 	
 }
+

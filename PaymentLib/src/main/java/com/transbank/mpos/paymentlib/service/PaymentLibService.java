@@ -1,5 +1,7 @@
 package com.transbank.mpos.paymentlib.service;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +18,7 @@ public class PaymentLibService {
 	
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	public PaymentLibResponse parseJsonToSPDH(PaymentLibRequest paymentLibRequest) throws Exception{
+	public PaymentLibResponse parseJsonToSPDH(PaymentLibRequest paymentLibRequest, HttpServletResponse response) throws Exception{
 		
 		logger.info("Iniciando PaymentLibService - parseJsonToSPDH:  "+paymentLibRequest);
 		
@@ -25,6 +27,8 @@ public class PaymentLibService {
 			paymentLibResponse = validarParametrosEntrada(paymentLibRequest);
 			if(!"01".equals(paymentLibResponse.getCodigoOperacion())){
 				paymentLibResponse = construirSPDH(paymentLibRequest);				
+			}else {
+				response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			}
 			
 			

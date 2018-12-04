@@ -27,19 +27,14 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "/saveDetails", method = RequestMethod.POST)
-//    @PostMapping("/saveDetails")                     // it only support port method
+    
     public String saveDetails(@RequestParam("employeeName") String employeeName,
                               @RequestParam("employeeEmail") String employeeEmail,
                               @RequestParam("employeeFile") MultipartHttpServletRequest employeeFile,
                               ModelMap modelMap) {
 
-        // write your code to save details
         modelMap.put("employeeName", employeeName);
         modelMap.put("employeeEmail", employeeEmail);
-//        modelMap.put("employeeFile", employeeFile);
-        
-//        System.out.println("nombre Archivo:  "+employeeFile.getName());
-//        System.out.println("tamaño Archivo:  "+employeeFile.getSize());
         
         return "viewDetails";           // welcome is view name. It will call employeeFrom.jsp
     }

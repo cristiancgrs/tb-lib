@@ -2,7 +2,7 @@ package com.transbank.mpos.merchant.dto;
 
 import java.io.Serializable;
 
-public class GenerarNumeroUnicoResponse implements Serializable{
+public class GenerarNumeroUnicoResponse extends Operacion implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
